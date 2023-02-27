@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Générateur de phrase aléatoire">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Générateur de phrase aléatoire" />
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/styles.css" />
     <title>Générateur de phrase aléatoire</title>
-</head>
-<body>
-    <div class="container">
+  </head>
+  <body>
+    <header>
+      <h1>Random quotes</h1>
+    </header>
+    <main>
+      <div class="container">
         <div id="quote-box">
           <p class="quote">You can do anything but not everything</p>
           <p class="source">David Allen</p>
@@ -18,7 +24,21 @@
         </div>
         <button id="loadQuote">Show another quote</button>
       </div>
-      <!--  -->
-      <script src="./index.js"></script>
-</body>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <div class="line-left"></div>
+        <div class="line-right"></div>
+        <ul>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">CGV</a></li>
+          <li><a href="#">CGU</a></li>
+          <li><a href="#">Vos informations personnelles</a></li>
+        </ul>
+      </div>
+    </footer>
+    <!-- scripts -->
+    <script src="./index.js"></script>
+  </body>
 </html>
