@@ -76,18 +76,21 @@ let source = document.querySelector(".source");
 let citation = document.querySelector(".citation");
 let year = document.querySelector(".year");
 let tags = document.querySelector(".tags");
-let loader = document.getElementById("loader");
+let loader = document.querySelector(".loader")
 let main = document.getElementById("main");
+let footer = document.getElementById("footer")
 
 // Loading Spinner Shown
 function spinner() {
   // hide text
   main.style.display = "none";
+  footer.style.display = "none";
   loader.style.display = "block";
 }
 
 function complete() {
   main.style.display = "block";
+  footer.style.display = "block";
   loader.style.display = "none";
 }
 
