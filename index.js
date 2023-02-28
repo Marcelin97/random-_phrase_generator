@@ -67,7 +67,7 @@ let quotes = [
   },
 ];
 
-//   select the btn who change the quote
+// Select the btn who change the quote
 let btn = document.getElementById("loadQuote");
 
 // variables
@@ -76,21 +76,24 @@ let source = document.querySelector(".source");
 let citation = document.querySelector(".citation");
 let year = document.querySelector(".year");
 let tags = document.querySelector(".tags");
-let loader = document.querySelector(".loader")
+let loader = document.querySelector(".loader");
 let main = document.getElementById("main");
-let footer = document.getElementById("footer")
+let footer = document.getElementById("footer");
 
 // Loading Spinner Shown
 function spinner() {
-  // hide text
+  // Hide text
   main.style.display = "none";
   footer.style.display = "none";
+  // Show spinner
   loader.style.display = "block";
 }
 
 function complete() {
+  // Show text
   main.style.display = "block";
   footer.style.display = "block";
+  // Hide spinner
   loader.style.display = "none";
 }
 
@@ -98,14 +101,13 @@ function complete() {
 btn.addEventListener("click", function () {
   // Show loader
   spinner();
+  // Show quote after delay
   setTimeout(() => {
-    // choose a random quote
+    // Choose a random quote
     let random = Math.floor(Math.random() * quotes.length);
-    //   console.log(random);
 
-    // store the object within a variable
+    // Store the object within a variable
     let quoteObject = quotes[random];
-    //   console.log(quoteObject);
 
     // Once the quote has been constructed, add it to the DOM
     quote.innerHTML = quoteObject.quote;
@@ -113,7 +115,6 @@ btn.addEventListener("click", function () {
 
     // If the citation property exists, add it
     if (quoteObject.hasOwnProperty("citation")) {
-      // console.log(quoteObject.citation);
       citation.innerHTML = quoteObject.citation;
     }
     // If the year property exists, add it
@@ -126,7 +127,8 @@ btn.addEventListener("click", function () {
         tags.innerHTML = quoteObject.tags[i];
       }
     }
-    // Hide Loader
+    // Hide Loader and render the quote
     complete();
+    // Delay to show spinner
   }, 1000);
 });
