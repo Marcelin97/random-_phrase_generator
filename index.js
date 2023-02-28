@@ -76,38 +76,54 @@ let source = document.querySelector(".source");
 let citation = document.querySelector(".citation");
 let year = document.querySelector(".year");
 let tags = document.querySelector(".tags");
+let loader = document.getElementById("loader");
+let main = document.getElementById("main");
 
-// choose a random quote
-// const randomNumber = Math.floor(Math.random() * quotes.length);
+// Loading Spinner Shown
+function spinner() {
+  // hide text
+  main.style.display = "none";
+  loader.style.display = "block";
+}
+
+function complete() {
+  main.style.display = "block";
+  loader.style.display = "none";
+}
 
 // Adding the event listeners on click
 btn.addEventListener("click", function () {
-  // choose a random quote
-  let random = Math.floor(Math.random() * quotes.length);
-//   console.log(random);
+  // Show loader
+  spinner();
+  setTimeout(() => {
+    // choose a random quote
+    let random = Math.floor(Math.random() * quotes.length);
+    //   console.log(random);
 
-// store the object within a variable
-  let quoteObject = quotes[random]
-//   console.log(quoteObject);
+    // store the object within a variable
+    let quoteObject = quotes[random];
+    //   console.log(quoteObject);
 
-  // Once the quote has been constructed, add it to the DOM
-  quote.innerHTML = quoteObject.quote;
-  source.innerHTML = "-" + quoteObject.source;
+    // Once the quote has been constructed, add it to the DOM
+    quote.innerHTML = quoteObject.quote;
+    source.innerHTML = "-" + quoteObject.source;
 
-  // If the citation property exists, add it
-  if (quoteObject.hasOwnProperty('citation')) {
-    // console.log(quoteObject.citation);
-    citation.innerHTML = quoteObject.citation;
-
-  }
-  // If the year property exists, add it
-  if (quoteObject.hasOwnProperty('year')) {
-    year.innerHTML = quoteObject.year;
-  }
-  // If the array of tags property exists, add it
-  if (quoteObject.hasOwnProperty('tags')) {
-    for (var i = 0; i < quoteObject.tags.length; i++) {
-        tags.innerHTML = quoteObject.tags[i];
+    // If the citation property exists, add it
+    if (quoteObject.hasOwnProperty("citation")) {
+      // console.log(quoteObject.citation);
+      citation.innerHTML = quoteObject.citation;
     }
-  }
+    // If the year property exists, add it
+    if (quoteObject.hasOwnProperty("year")) {
+      year.innerHTML = quoteObject.year;
+    }
+    // If the array of tags property exists, add it
+    if (quoteObject.hasOwnProperty("tags")) {
+      for (var i = 0; i < quoteObject.tags.length; i++) {
+        tags.innerHTML = quoteObject.tags[i];
+      }
+    }
+    // Hide Loader
+    complete();
+  }, 1000);
 });
